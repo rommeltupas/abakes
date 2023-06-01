@@ -1,0 +1,196 @@
+﻿@page
+@model abakes.Pages.LoginModel
+@{
+}
+
+<style>
+    .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+        background-color: #fbc1b4 !important;
+        font-family:  'Poppins', sans-serif;!important;
+        font-weight: 900;
+        font-style: italic;
+    }
+
+    form {
+        margin: auto;
+        width: 600px!important;
+        margin-left: 55%!important;
+    }
+    .logo{
+        text-align: center;
+        margin-bottom: 10%;
+    }
+
+    .rounded {
+        border-radius: 10px;
+    }
+    form{
+        border: 3px solid #99846c;
+        border-radius: 10px;
+    }
+
+</style>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
+
+    <title>Carousel Template · Bootstrap v5.2</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
+
+
+    <link rel="stylesheet" href="~/css/damarota-blog.css " asp-append-version="true">
+
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true">
+
+
+
+</head>
+
+  
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: #9b846b; color: black !important;"
+    <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="~/img/logo/Logo.png" width="60" height="60" class="d-inline-block align-top" alt="" style="position: relative; left: 20px; right: 10px; margin-right: 20px;">
+                </a>
+                <a class="navbar-brand" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="#">A's Bakes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/Index">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/ProductCustomer?page=1">MENU</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/AboutUs">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link"  style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/Contact">CONTACT US</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/FeedbackCustomer">FEEDBACK</a>
+          </li>
+          
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+  <!-- Banner -->
+    <div class="heading-page header-text">
+      <section class="page-heading" >
+           
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-content">
+                <h4>LOGIN</h4>
+                <h2>ADMIN PANEL</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Banner -->
+<div class="site-wrap">
+    
+      
+    <div class="py-5">
+      <div class="container">
+        <div class="row">
+          
+        </div>
+      </div>
+    </div>  
+
+   
+      <div class="container">
+        <div class="row">
+                @if(TempData["AlertMessage"] != null)
+                {
+                     <div class="col-md-4 alert alert-success">
+                @TempData["AlertMessage"] </div>
+                }
+           
+      
+          <div class="col-md-6 pl-12 ">
+             <!--asp-page="/Home"--->
+
+
+            <form method="post">
+
+
+                    <div class="p-5 p-lg-5 border rounded" style="background-color: #fbebeb; ">
+                        <div class="logo">
+                            <img src="~/img/logo/Logo.png" width="30%" height="30%" alt="Logo">
+                        </div>
+
+
+                <div class="form-group row">
+                  <div class="col-md-12" >
+                                <input type="text" style="margin-bottom: 10px;" class="form-control" id="username" name="username" placeholder="Type Your Username" required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <input type="password" style="margin-bottom: 10px" class="form-control" id="password" name="password" placeholder="Type Your Password" required>
+                  </div>
+            
+                </div>
+                
+                <div class="form-group row">
+                  
+
+                  <div class="col-md-6">
+                                <label for="c_hadd" class="text-black"> <a href="/Login2" style="font-family:Poppins ExtraBold; margin-bottom: 10px;">Forgot Password?</a></label>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-lg-12">
+                                <input type="submit" class="btn btn-primary btn-lg btn-block" value="SIGN IN" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: rgb(241,195,208); border-color:rgb(241,195,208);">
+                  </div>
+                  <span style="color:red;">@Model.errorMessages</span>
+                 
+                </div>
+              </div>
+            </form>
+          </div>
+
+        
+        </div>
+      </div>
+   </div>
+<script>
+    setInterval(function () {
+        $.ajax({
+            url: "/managecode?handler=Expiration",
+            type: "GET",
+            success: function (result) {
+                console.log(result);
+                // handle the response here
+            },
+            error: function (xhr, status, error) {
+                console.log("Error: " + error);
+            }
+        });
+    }, 1000);
+
+
+
+</script>

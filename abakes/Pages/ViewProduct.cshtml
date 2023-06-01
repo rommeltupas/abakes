@@ -1,0 +1,95 @@
+﻿@page
+@model abakes.Pages.ViewProductModel
+@{
+}
+<div class="site-wrap">
+    <head>
+
+
+        <style>
+
+
+            .navbar-nav li {
+                transition: all 0.2s ease-in-out;
+            }
+
+                .navbar-nav li:hover {
+                    transform: scale(1.2);
+                }
+        </style>
+
+    </head>
+
+    <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: #9b846b; color: black !important;"
+    <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="~/img/logo/Logo.png" width="60" height="60" class="d-inline-block align-top" alt="" style="position: relative; left: 20px; right: 10px; margin-right: 20px;">
+                </a>
+                <a class="navbar-brand" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="#">A's Bakes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page"  style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/Index">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/ProductCustomer?page=1">MENU</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/AboutUs">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link"  style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/Contact">CONTACT US</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/FeedbackCustomer">FEEDBACK</a>
+          </li>
+                        @if (Model.userconfirm != null)
+                        {
+                            <li class="nav-item">
+                                    <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" asp-page-handler="LogOut" asp-page="/index">LOGIN</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/AdminPanel">ADMIN PANEL</a>
+          </li>
+          }
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+   
+
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="@Model.pdImg" alt="Image" class="img-fluid">
+            
+          </div>
+          <div class="col-md-6">
+                    <h2 class="" style="font-family:Poppins ExtraBold; color: rgb(252,188,180); font-size: 45px;">@Model.pdName</h2>
+
+                    <p style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold; font-size: 25px; margin-top: 20px;">@Model.pdDescription</p>
+
+                    <p><strong class="" style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold; font-size: 40px;">PHP @Model.pdPrice</strong></p>
+            <div class="mb-5">
+              <div class="input-group mb-3" style="max-width: 120px;">
+             
+             
+              
+            </div>
+            </div>
+
+                    <p><a href="/ProductCustomer?page=1" class="buy-now btn btn-sm btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4;">Back</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+     </div>
+

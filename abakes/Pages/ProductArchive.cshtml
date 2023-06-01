@@ -1,0 +1,91 @@
+﻿@page
+@model abakes.Pages.ProductArchiveModel
+@{
+}
+<form method="get">
+    <div class="form-group">
+        <label for="searchInput" style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Search:</label>
+        <input type="text" class="form-control" name="search" placeholder="Enter product name">
+    </div>
+    <button type="submit" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;">Search</button>
+    <a asp-page="/ProductArchive" asp-route-sortOrder="Sort Name" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;"> Sort Name Desc</a> 
+    <a asp-page="/ProductArchive" asp-route-sortOrder="Sort Name2" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;"> Sort Name Asc</a> 
+    <a asp-page="/ProductArchive" asp-route-sortOrder="Sort Price" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;"> Sort Price Desc</a> 
+    <a asp-page="/ProductArchive" asp-route-sortOrder="Sort Price2" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;"> Sort Price Asc</a>
+</form>
+
+
+
+<h2 style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;"> List of Products</h2>
+<a class='btn btn-btn-dark btn-sm btn-blue' href="/ProductList" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4;"> Back </a>
+ 
+    @if(Model.userconfirm != null){
+
+    <a class='btn btn-btn-dark btn-sm btn-blue' href="/addProduct" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4;"> ADD PRODUCT </a>
+    }else{
+
+    }
+   
+    <table class="table">
+        <thead>
+            <tr>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">ID</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Name</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Category</th><
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Price</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Description</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Image</th>
+          
+            
+            </tr>
+        </thead>
+        <tbody>
+            
+        @foreach (var item in Model.listProduct)
+        {
+                <tr>
+             
+                    <td>@item.pdID</td>
+                    <td>@item.pdName</td>
+                    <td>@item.pdCategory</td>
+                    <td>@item.pdPrice</td>
+                    <td>@item.pdDescription</td>
+                    <td> <img src = "@item.pdImg" alt="placehold" width= 50%>  </td>
+             
+              
+         
+                    <td>
+                        @if(Model.userconfirm != null){
+                        <a class='btn btn-btn-dark btn-sm' href='/ManageProduct?id=@item.pdID' style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4;"> Edit </a>
+                        <a class='btn btn-btn-dark btn-sm' asp-page-handler="Delete" asp-route-id=@item.pdID style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4; margin-top: 20px;"> Delete </a> @*asp-page-handler gets the method Remove. asp-route-"value" *@
+                         <a class='btn btn-btn-dark btn-sm' asp-page-handler="Archive" asp-route-id=@item.pdID style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4; margin-top: 20px;"> Unarchive </a>
+                        }else{
+
+                        }
+
+                    <a class='btn btn-btn-dark btn-sm' href='/ViewProduct?id=@item.pdID' style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4; margin-top: 20px;"> View </a>
+                        
+                    </td>
+                </tr>
+            }
+
+            
+        
+        </tbody>
+    </table>
+
+                        <script>
+        setInterval(function () {
+            $.ajax({
+                url: "/managecode?handler=Expiration",
+                type: "GET",
+                success: function (result) {
+                    console.log(result);
+                    // handle the response here
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error: " + error);
+                }
+            });
+        }, 1000);
+    </script>

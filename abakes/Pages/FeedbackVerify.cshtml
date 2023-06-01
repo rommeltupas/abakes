@@ -1,0 +1,54 @@
+﻿@page
+@model abakes.Pages.FeedbackVerifyModel
+@{
+}
+<h2 style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;"> List of Feedbacks</h2>
+<a class='btn btn-btn-dark btn-sm btn-blue' href="/AdminPanel" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4;"> Back </a>
+<a href="/FeedbackReview" type="submit" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;">Archive Page</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">ID</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Name</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Rating</th><
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Message</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Verified</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Image</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Action</th>
+          
+            
+            </tr>
+        </thead>
+        <tbody>
+            
+        @foreach (var item in Model.listFeedback)
+        {
+                <tr>
+             
+                    <td>@item.fbID</td>
+                    <td>@item.fbName</td>
+                    <td>@item.status</td>
+                    <td>@item.fbRating</td>
+                    <td>@item.fbMessage</td>
+                    <td>@item.status</td>
+
+                <td>
+                    <img src="@item.fbImg" alt="placehold" style="max-width: 50%;">
+                </td>
+             
+              
+         
+                    <td>
+                    <a class='btn btn-btn-dark btn-sm' href='/ViewFeedback?id=@item.fbID' style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4;"> View </a>
+                    <a class='btn btn-btn-dark btn-sm' asp-page-handler="Verify" asp-route-id=@item.fbID style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4; margin-top: 20px;"> Verify </a> @*asp-page-handler gets the method Remove. asp-route-"value" *@
+                    </td>
+
+
+                </tr>
+            }
+
+            
+        
+        </tbody>
+    </table>

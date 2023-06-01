@@ -1,0 +1,95 @@
+﻿@page
+@model abakes.Pages.OrderListModel
+@{
+}
+<form method="get">
+    <div class="form-group">
+        <label for="searchInput" style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Search:</label>
+        <input type="text" class="form-control" name="search" placeholder="Enter Customer Name">
+    </div>
+    <button type="submit" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;">Search</button>
+    <a href="/ProductArchive" type="submit" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;">Archive Page</a>
+    <a asp-page="/OrderList" asp-route-sortOrder="Sort Name" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;"> Sort Name Desc</a> 
+    <a asp-page="/OrderList" asp-route-sortOrder="Sort Name2" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;"> Sort Name Asc</a> 
+    <a asp-page="/OrderList" asp-route-sortOrder="Sort Flavor" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;"> Sort Flavor Desc</a> 
+    <a asp-page="/OrderList" asp-route-sortOrder="Sort Flavor2" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;"> Sort Flavor Asc</a> 
+
+
+</form>
+
+<h2 style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;"> List of Orders</h2>
+<a class='btn btn-btn-dark btn-sm btn-blue' href="/AdminPanel" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4;"> Back </a>
+
+
+   
+    <table class="table">
+        <thead>
+            <tr>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">ID</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Name</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Email</th><
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Phone</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Shapes</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Tier</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Flavor</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Sizes</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Instruction</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Status</th>
+          
+            
+            </tr>
+        </thead>
+        <tbody>
+            
+        @foreach (var item in Model.listOrder)
+        {
+                <tr>
+             
+                    <td>@item.odID</td>
+                    <td>@item.odName</td>
+                    <td>@item.odEmail</td>
+                    <td>@item.odPhone</td>
+                    <td>@item.odShapes</td>
+                    <td>@item.odTier</td>
+                    <td>@item.odFlavor</td>
+                    <td>@item.odSize</td>
+                    <td>@item.odInstruction</td>
+                    <td>@item.status</td>
+                    
+             
+              
+         
+                    <td>
+                        @if(Model.userconfirm != null){
+                        <a class='btn btn-btn-dark btn-sm' asp-page-handler="Delete" asp-route-id=@item.odID style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4; margin-top: 20px;"> Delete </a> @*asp-page-handler gets the method Remove. asp-route-"value" *@
+                         <a class='btn btn-btn-dark btn-sm' asp-page-handler="Deactivate" asp-route-id=@item.odID style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4; margin-top: 20px;"> Deactivate </a>
+                        }else{
+
+                        }
+
+              
+                        
+                    </td>
+                </tr>
+            }
+
+            
+        
+        </tbody>
+    </table>
+
+                        <script>
+        setInterval(function () {
+            $.ajax({
+                url: "/managecode?handler=Expiration",
+                type: "GET",
+                success: function (result) {
+                    console.log(result);
+                    // handle the response here
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error: " + error);
+                }
+            });
+        }, 1000);
+    </script>

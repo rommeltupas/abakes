@@ -1,0 +1,254 @@
+﻿@page
+@model abakes.Pages.ProductCustomerModel
+@{
+}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+    <title>ArtCrowd - Contact us</title>
+
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/damarota-blog.css " asp-append-version="true">
+    <link rel="stylesheet" href="~/css/owl.css" asp-append-version="true">
+
+
+    <link href="~/css/layout.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/Pages/Shared/_Layout.cshtml" rel="stylesheet" asp-append-version="true">
+
+
+</head>
+<style>
+    .block-4-image img {
+
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .block-4-image:hover img {
+      transform: scale(1.1);
+    }
+
+               .navbar-nav li {
+                  transition: all 0.2s ease-in-out;
+              }
+
+                  .navbar-nav li:hover {
+                      transform: scale(1.2);
+                  }
+</style>
+<body>
+
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: #9b846b; color: black !important;"
+    <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="~/img/logo/Logo.png" width="60" height="60" class="d-inline-block align-top" alt="" style="position: relative; left: 20px; right: 10px; margin-right: 20px;">
+                </a>
+                <a class="navbar-brand" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="#">A's Bakes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/Index">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style=" color: #fbc1b4; font-family:Poppins ExtraBold;" href="/ProductCustomer?page=1">MENU</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/AboutUs">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link"  style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/Contact">CONTACT US</a>
+          </li>
+
+          <li class="nav-item">
+                <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/FeedbackCustomer">FEEDBACK</a>
+          </li>
+                    @if (Model.userconfirm != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" asp-page-handler="LogOut" asp-page="/index">LOGOUT</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link"style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/AdminPanel">ADMIN PANEL</a>
+          </li>
+                    }
+        </ul>
+      </div>
+    </div>
+  </nav>
+    </header>
+
+    <main>
+
+  <!-- Banner -->
+    <div class="heading-page header-text">
+      <section class="page-heading" >
+           
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-content">
+                
+                <h2>OUR SPECIAL CAKES</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Banner -->
+
+        <div class="site-section">
+            <div class="container">
+
+                <div class="row mb-5">
+                    <div class="col-md-9 order-2 mx-auto">
+
+                        <div class="row" >
+                            <div class="col-md-12 mb-5">
+                                
+                                <div class="float-md-left mb-4"><h2 class="" style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Products</h2></div>
+                                
+                                    <form method="get">
+                                <div class="form-group">
+                                    <label for="searchInput" style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Search:</label>
+                                    <input type="text" class="form-control" name="search" placeholder="Enter product name">
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;">Search</button>
+                                
+                                <a asp-page="/ProductCustomer?page=@Model.pagecurrent" asp-route-sortOrder="Sort Name" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;"> Sort Name Desc</a> 
+                                <a asp-page="/ProductCustomer?page=@Model.pagecurrent" asp-route-sortOrder="Sort Name2" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;"> Sort Name Asc</a> 
+                                <a asp-page="/ProductCustomer?page=@Model.pagecurrent" asp-route-sortOrder="Sort Price" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;"> Sort Price Desc</a> 
+                                <a asp-page="/ProductCustomer?page=@Model.pagecurrent" asp-route-sortOrder="Sort Price2" class="btn btn-primary" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; border-color: #fbc1b4;background-color: #fbc1b4; margin-top:20px;margin-bottom:20px;"> Sort Price Asc</a> 
+
+
+                                </form>
+
+                               
+
+                                
+                                <div class="d-flex" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-5">
+                            @foreach (var item in Model.listProduct)
+                            {
+                                <div class="col-sm-6 col-lg-4 mb-4">
+                                    <div class="block-4 text-center border">
+                                        <figure class="block-4-image">
+                                            <a href="/ViewProduct?id=@item.pdID"><img src="@item.pdImg" alt="Image placeholder" class="img-fluid" style="max-width: 100%;"></a>
+                                        </figure>
+                                        <div class="block-4-text p-4">
+                                            <h3><a href="/ViewProduct?id=@item.pdID" style="font-family:Poppins ExtraBold; color: rgb(252,188,180);">@item.pdName</a></h3>
+                                            <div class="container">
+                                                <span id="rateMe2" class="empty-stars"></span>
+                                            </div>
+
+                                            <br>
+                                            <h2 style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;"> @item.pdCategory</h2>
+                                            <h3 style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">@item.pdDescription</h3>
+
+                                            <a class='btn btn-btn-dark btn-sm' href='/ViewProduct?id=@item.pdID' style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4; margin-top: 20px;"> View</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        <div style="align-content: center; color:rgb(159, 167, 189); font-family:Poppins ExtraBold;"">
+                        @{
+                            double pages = (Model.totalItems / Model.totals);
+                            if (pages % 1 == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                pages += 1;
+                            }
+                            int totalPage = (int)pages;
+                            int counts = 0;
+
+
+                            int counter = 1;
+                            double totales = (totalPage - Model.pagecurrent);
+
+
+
+                        }
+
+                        @if ((Model.pagecurrent) == 1) { }else{
+                                <a href="/ProductCustomer?page=@(Model.pagecurrent-1)" style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Previous</a>
+                        }
+
+                        @while(counts <= totales){
+                            @if(counter <=5){
+                                    <a href="/ProductCustomer?page=@Model.pagecurrent" style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;"> @Model.pagecurrent</a>
+                            }else{
+
+                            }
+
+                            counts++;
+                            Model.pagecurrent++;
+                            counter++;
+                        }
+
+                        @if((Model.pagecurrent) == totales){}else{
+
+                            @if (Model.pagecurrent == 1)
+                            {
+                                    <a href="/ProductCustomer?page=@Model.pagecurrent" style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Last</a>
+                            }else{
+                                    <a href="/ProductCustomer?page=@(Model.pagecurrent-1)" style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Last</a>
+                            }
+
+                        }
+                        </div>
+
+
+                        <div class="row" data-aos="fade-up">
+                            <div class="col-md-12 text-center">
+                                <div class="site-block-27">
+                                    <ul>
+                                        <li><a href="#">&lt;</a></li>
+                                        <li class="active"><span>1</span></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">&gt;</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+        </div>
+        <script src="~js/rating.js"></script>
+
+    </main>
+</body>
+
+<script src="~js/rating.js"></script>

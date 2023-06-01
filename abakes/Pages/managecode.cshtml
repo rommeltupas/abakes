@@ -1,0 +1,74 @@
+﻿@page
+@model abakes.Pages.managecodeModel
+@{
+}
+<h2 style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Manage Codes</h2>
+<style>
+
+    .btn-blue {
+        background-color: yellow;
+        color: white;
+    }
+</style>
+<a class='btn btn-btn-dark btn-sm btn-blue' href="/AdminPanel" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4;"> Back </a>
+<a class='btn btn-btn-dark btn-sm btn-blue' asp-page-handler="Generate" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4;"> Generate Code </a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">ID</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Generated Code</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Status</th><
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Expiration Date</th>
+            <th style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;">Action</th>
+            
+
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.codeList)
+        {
+            <tr>
+
+                <td>@item.id</td>
+                <td>@item.generatedCode</td>
+                <td>@item.status</td>
+                <td>@item.dateexpiry</td>
+                
+                <td>
+                    @if (item.status.Equals("true"))
+                    {
+                        <a class='btn btn-btn-dark btn-sm' asp-page-handler="Deactivate" asp-route-id="@item.id" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4;"> Deactivate </a>
+                        <a class='btn btn-btn-dark btn-sm' href="/card?maincode=@item.generatedCode" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4;"> View Card </a>
+                    }else{
+                        <a class='btn btn-btn-dark btn-sm' disabled style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4;"> Deactivate </a>
+                    }
+                </td>
+
+
+                
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
+
+<script>
+    setInterval(function () {
+        $.ajax({
+            url: "/managecode?handler=Expiration",
+            type: "GET",
+            success: function (result) {
+                console.log(result);
+                // handle the response here
+            },
+            error: function (xhr, status, error) {
+                console.log("Error: " + error);
+            }
+        });
+    }, 1000);
+</script>

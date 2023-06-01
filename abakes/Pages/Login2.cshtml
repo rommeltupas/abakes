@@ -1,0 +1,216 @@
+﻿@page
+@model abakes.Pages.Login2Model
+@{
+}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+    <title>ArtCrowd - Contact us</title>
+
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/damarota-blog.css " asp-append-version="true">
+    <link rel="stylesheet" href="~/css/owl.css" asp-append-version="true">
+
+</head>
+
+    <body>
+
+
+
+
+      <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: #9b846b; color: black !important;"
+    <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="~/img/logo/Logo.png" width="60" height="60" class="d-inline-block align-top" alt="" style="position: relative; left: 20px; right: 10px; margin-right: 20px;">
+                </a>
+                <a class="navbar-brand" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="#">A's Bakes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/Index">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/ProductCustomer?page=1">MENU</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/AboutUs">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link"  style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/Contact">CONTACT US</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/FeedbackCustomer">FEEDBACK</a>
+          </li>
+          
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <!-- Banner -->
+    <div class="heading-page header-text">
+      <section class="page-heading" >
+           
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-content">
+                <h4>ADMIN PANEL</h4>
+                <h2>PASSWORD RESET</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Banner -->
+
+
+<div class="site-wrap">
+    
+      
+    <div class="py-5">
+      <div class="container">
+        <div class="row">
+          
+        </div>
+      </div>
+    </div>  
+
+   
+      <div class="container">
+        <div class="row">
+                @if(TempData["AlertMessage"] != null)
+                {
+                     <div class="col-md-4 alert alert-success">
+                @TempData["AlertMessage"] </div>
+                }
+           
+      
+          <div class="col-md-6 pl-12 ">
+             <!--asp-page="/Home"--->
+
+
+            <form method="post">
+              
+              <div class="p-5 p-lg-5 border">
+             
+                <div class="form-group row">
+                   <div class="col-md-12">
+                       <label for="c_pass" class="text-black" style="display:block; color:rgb(47, 58, 77); font-family:Poppins ExtraBold;">What group is this? <span class="text-danger"></span></label>
+                       <br>
+                                    <label for="c_pass" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;">Security Answer <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="inputString" name="inputString" placeholder="">
+                  </div>
+                  <div class="col-md-12" >
+                    <label for="c_email" class="text-black" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;">New Password <span class="text-danger">*</span></label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must: Be at least 8 characters in length.
+                    Include at least one upper case letter.
+                    Include at least one number.
+                    Include at least one special character." required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                 
+                   <div class="col-md-12" >
+                                    <label for="c_email" class="text-black" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;">Confirm Password <span class="text-danger">*</span></label>
+                                    <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must: Be at least 8 characters in length.
+                    Include at least one upper case letter.
+                    Include at least one number.
+                    Include at least one special character." required>
+                  </div>
+                </div>
+                
+                <div class="form-group row">
+                  <div class="col-lg-12">
+                                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="submit" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4; border-color: #fbc1b4;">
+                  </div>
+
+                 
+                </div>
+              </div> 
+            </form>
+          </div>
+
+        
+        </div>
+      </div>
+   </div>
+   
+
+         
+    
+
+
+    
+
+    <!-- Bootstrap -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/accordions.js"></script>
+
+    <script language = "text/Javascript">
+      cleared[0] = cleared[1] = cleared[2] = 0;
+      function clearField(t){
+      if(! cleared[t.id]){
+          cleared[t.id] = 1;
+          t.value='';
+          t.style.color='#fff';
+          }
+      }
+
+      document.querySelector('.submit').onclick = function(){
+        password = document.querySelector('.password').value,
+        cpassword = document.querySelector('.cpassword').value;
+
+        if(password != cpassword){
+            alert("Password didn't match")
+            return false
+        }
+
+        else if (password == cpassword){
+            alert("Registration Sucessful")
+        }
+        return true
+    }
+    </script>
+    <script>
+        setInterval(function () {
+            $.ajax({
+                url: "/managecode?handler=Expiration",
+                type: "GET",
+                success: function (result) {
+                    console.log(result);
+                    
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error: " + error);
+                }
+            });
+        }, 1000);
+
+
+
+    </script>
+  </body>

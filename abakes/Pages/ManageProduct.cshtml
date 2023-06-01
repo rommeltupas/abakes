@@ -1,0 +1,264 @@
+﻿@page
+@model abakes.Pages.ManageProductModel
+@{
+}
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+    <title>A's Bakes - Manage Product</title>
+
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/damarota-blog.css " asp-append-version="true">
+    <link rel="stylesheet" href="~/css/owl.css" asp-append-version="true">
+
+
+    <link href="~/css/layout.css" rel="stylesheet" asp-append-version="true">
+    <link href="~/Pages/Shared/_Layout.cshtml" rel="stylesheet" asp-append-version="true">
+
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: #9b846b; color: black !important;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="~/img/logo/Logo.png" width="60" height="60" class="d-inline-block align-top" alt="" style="position: relative; left: 20px; right: 10px; margin-right: 20px;">
+                </a>
+                <a class="navbar-brand" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="#">A's Bakes</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="Index">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/ProductCustomer?page=1">MENU</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/AboutUs">ABOUT US</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/Contact">CONTACT US</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/FeedbackCustomer">FEEDBACK</a>
+                        </li>
+
+                        @if (Model.userconfirm != null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" asp-page-handler="LogOut" asp-page="/index">LOGOUT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color:rgb(47, 58, 77); font-family:Poppins ExtraBold;" href="/AdminPanel">ADMIN PANEL</a>
+                            </li>
+                        }
+                        else
+                        {
+
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    </div>
+    <!-- Banner -->
+    <div class="heading-page header-text">
+        <section class="page-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-content">
+                            <h4>Manage Product</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Banner -->
+
+    <section class="contact-us">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="down-contact">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="sidebar-item contact-information">
+                                    <div class="sidebar-heading">
+                                        <h4 style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;"><label for="pdName">Name:</label></h4>
+                                        <h4 style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;"><label for="pdCategory">Category:</label></h4>
+                                        <h4 style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;"><label for="price">Price:</label></h4>
+                                        <h4 style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;"><label for="fileInput">Image:</label></h4>
+                                        <h4 style="color:rgb(159, 167, 189); font-family:Poppins ExtraBold;"><label for="description">Description:</label></h4>
+                                        <a class='btn btn-btn-dark btn-sm btn-blue' href="/ProductList" style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4; margin-top: 10px;"> Back </a>
+                                    </div>
+                                    <div class="content">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+
+                                <div class="sidebar-item contact-information">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="sidebar-heading">
+                                           <input type="hidden" value="@Model.pdID" name="id"/>
+                                            <input type="text" id="pdName" name="name"  required  value="@Model.pdName"/><br />
+                                            <input type="text" id="pdCateogry" name="category" value="@Model.pdCategory" required /><br />
+                                            <input type="number" id="price" name="price" value="@Model.pdPrice" required /><br />
+
+                                            <img src="@Model.pdImg" id="imgPreview" width="50%" />
+                                            <input type="file" id="fileInput" name="file" required onchange="previewImage()" />
+
+                                        </div>
+
+
+                                        <div class="content">
+                                            <input type="text" id="description" name="description" value="@Model.pdDescription" maxlength="50" required><br />
+                                        </div>
+
+                                        <button class='btn btn-btn-dark btn-sm btn-blue' style="color:rgb(173, 136, 125); font-family:Poppins ExtraBold; background-color: #fbc1b4; margin-top: 10px;" type="submit" onclick="return myConfirm()"> Create </button>
+                                        
+                                    </form>
+                                    <p style="color:red;">@Model.errorMessage</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+    </section>
+
+    <hr style="margin-bottom: 0" ; class="featurette-divider">
+
+
+
+    <!-- FOOTER -->
+    <div id="footerBottom" style=" background-color: #f7fff8;">
+
+        <div class="container">
+            <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-5 my- border-bottom">
+                <div class="divisions col mb-3">
+                    <div>
+                        <img class="img-fluid" src="~/img/logo/logofooter.png" style="width:18rem" ;>
+                    </div>
+                    <p class="text-bottom">
+                        Serving you sweet treats made with love❤️
+                        We accept customized cakes, cupcakes, & more! Dm us!
+                    </p>
+                </div>
+
+                <div class="divisions col mb-4">
+                    <h5 class="heading-bottom">Sitemap</h5>
+                    <div class="sitemap">
+                        <ul class="nav flex-row">
+                            <li class="nav-item2 mb-2"><a href="Index" class="nav-link p-0 text-muted">Home</a></li>
+                            <li class="nav-item4 mb-2"><a href="Menu" class="nav-link p-0 text-muted">Menu</a></li>
+                        </ul>
+                        <ul class="nav flex-row">
+                            <li class="nav-item2 mb-2"><a href="AboutUs" class="nav-link p-0 text-muted">About Us</a></li>
+                            <li class="nav-item3 mb-2"><a href="Contact" class="nav-link p-0 text-muted">Contact Us</a></li>
+                        </ul>
+
+                        <ul class="nav flex-row">
+                            <li class="nav-item2 mb-2"><a href="Feedback" class="nav-link p-0 text-muted">Feedback</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="divisions col mb-4">
+                    <h5 class="heading-bottom">Contact Us</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><img class="phone" src="~/img/logo/phone.png">+63 09164656894</li>
+                        <li class="nav-item mb-2"><img class="mail" src="~/img/logo/mail.png">A_Bakes@gmail.com</a></li>
+                    </ul>
+                </div>
+
+                <div class="divisions col mb-4">
+                    <h5 class="heading-bottom">Follow Us</h5>
+                    <ul class="socials-pics nav flex-row img-fluid">
+                        <li class="nav-item2 mb-2"><a href="https://www.facebook.com/a.bakesandsweets" target="_blank"><img class="socials img-fluid" src="~/img/logo/facebook.png"></a></li>
+                        <li class="nav-item5 mb-2"><a href="https://www.instagram.com/a_bakesandsweets/" target="_blank"><img class="socials img-fluid" src="~/img/logo/instagram.png"></a></li>
+
+                    </ul>
+                </div>
+            </footer>
+        </div>
+        <div></div>
+    </div>
+
+    </main>
+    <div class="subfooter">
+        <p>By Group 4 - 3ITD<p>
+        <p>Copyright &copy; 2023 All Rights Reserved<p>
+    </div>
+
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>
+
+<script>
+    setInterval(function () {
+        $.ajax({
+            url: "/managecode?handler=Expiration",
+            type: "GET",
+            success: function (result) {
+                console.log(result);
+                // handle the response here
+            },
+            error: function (xhr, status, error) {
+                console.log("Error: " + error);
+            }
+        });
+    }, 1000);
+
+
+
+</script>
+
+    <script>
+function previewImage() {
+    var fileInput = document.getElementById('fileInput');
+    var imgPreview = document.getElementById('imgPreview');
+
+    if (fileInput.files && fileInput.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            imgPreview.src = e.target.result;
+        }
+
+        reader.readAsDataURL(fileInput.files[0]);
+    }
+}
+</script>
