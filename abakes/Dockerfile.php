@@ -5,7 +5,7 @@ FROM php:7.4-apache
 COPY . /var/www/html
 
 # Set the working directory in the container
-WORKDIR /var/www/html
+WORKDIR abakes/Pages/Index.cshtml
 
 # Install necessary PHP extensions
 RUN apt-get update && apt-get install -y \
